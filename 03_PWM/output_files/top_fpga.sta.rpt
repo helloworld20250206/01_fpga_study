@@ -1,0 +1,1595 @@
+TimeQuest Timing Analyzer report for top_fpga
+Mon Mar 24 21:40:46 2025
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1200mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1200mV 85C Model Setup Summary
+  8. Slow 1200mV 85C Model Hold Summary
+  9. Slow 1200mV 85C Model Recovery Summary
+ 10. Slow 1200mV 85C Model Removal Summary
+ 11. Slow 1200mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1200mV 85C Model Setup: 'clk'
+ 13. Slow 1200mV 85C Model Hold: 'clk'
+ 14. Slow 1200mV 85C Model Minimum Pulse Width: 'clk'
+ 15. Setup Times
+ 16. Hold Times
+ 17. Clock to Output Times
+ 18. Minimum Clock to Output Times
+ 19. Slow 1200mV 85C Model Metastability Report
+ 20. Slow 1200mV 0C Model Fmax Summary
+ 21. Slow 1200mV 0C Model Setup Summary
+ 22. Slow 1200mV 0C Model Hold Summary
+ 23. Slow 1200mV 0C Model Recovery Summary
+ 24. Slow 1200mV 0C Model Removal Summary
+ 25. Slow 1200mV 0C Model Minimum Pulse Width Summary
+ 26. Slow 1200mV 0C Model Setup: 'clk'
+ 27. Slow 1200mV 0C Model Hold: 'clk'
+ 28. Slow 1200mV 0C Model Minimum Pulse Width: 'clk'
+ 29. Setup Times
+ 30. Hold Times
+ 31. Clock to Output Times
+ 32. Minimum Clock to Output Times
+ 33. Slow 1200mV 0C Model Metastability Report
+ 34. Fast 1200mV 0C Model Setup Summary
+ 35. Fast 1200mV 0C Model Hold Summary
+ 36. Fast 1200mV 0C Model Recovery Summary
+ 37. Fast 1200mV 0C Model Removal Summary
+ 38. Fast 1200mV 0C Model Minimum Pulse Width Summary
+ 39. Fast 1200mV 0C Model Setup: 'clk'
+ 40. Fast 1200mV 0C Model Hold: 'clk'
+ 41. Fast 1200mV 0C Model Minimum Pulse Width: 'clk'
+ 42. Setup Times
+ 43. Hold Times
+ 44. Clock to Output Times
+ 45. Minimum Clock to Output Times
+ 46. Fast 1200mV 0C Model Metastability Report
+ 47. Multicorner Timing Analysis Summary
+ 48. Setup Times
+ 49. Hold Times
+ 50. Clock to Output Times
+ 51. Minimum Clock to Output Times
+ 52. Board Trace Model Assignments
+ 53. Input Transition Times
+ 54. Signal Integrity Metrics (Slow 1200mv 0c Model)
+ 55. Signal Integrity Metrics (Slow 1200mv 85c Model)
+ 56. Signal Integrity Metrics (Fast 1200mv 0c Model)
+ 57. Setup Transfers
+ 58. Hold Transfers
+ 59. Report TCCS
+ 60. Report RSKM
+ 61. Unconstrained Paths
+ 62. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                        ;
++--------------------+-----------------------------------------------------+
+; Quartus II Version ; Version 13.1.0 Build 162 10/23/2013 SJ Full Version ;
+; Revision Name      ; top_fpga                                            ;
+; Device Family      ; Cyclone IV E                                        ;
+; Device Name        ; EP4CE6E22C8                                         ;
+; Timing Models      ; Final                                               ;
+; Delay Model        ; Combined                                            ;
+; Rise/Fall Delays   ; Enabled                                             ;
++--------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-16        ; < 0.1%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                          ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                                                        ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 293.34 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-------------------------------------+
+; Slow 1200mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk   ; -2.409 ; -42.860            ;
++-------+--------+--------------------+
+
+
++------------------------------------+
+; Slow 1200mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.453 ; 0.000              ;
++-------+-------+--------------------+
+
+
+------------------------------------------
+; Slow 1200mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1200mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++---------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -3.000 ; -53.558                          ;
++-------+--------+----------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Setup: 'clk'                                                                                                                                         ;
++--------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                    ; To Node                                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.409 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.761      ;
+; -2.369 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.721      ;
+; -2.277 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.629      ;
+; -2.276 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.628      ;
+; -2.257 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.609      ;
+; -2.231 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.621      ;
+; -2.231 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.621      ;
+; -2.231 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.621      ;
+; -2.204 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.081     ; 3.124      ;
+; -2.191 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.581      ;
+; -2.191 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.581      ;
+; -2.191 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.581      ;
+; -2.171 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.523      ;
+; -2.140 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.081     ; 3.060      ;
+; -2.107 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.081     ; 3.027      ;
+; -2.104 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.081     ; 3.024      ;
+; -2.084 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.081     ; 3.004      ;
+; -2.081 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.081     ; 3.001      ;
+; -2.081 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.433      ;
+; -2.079 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.469      ;
+; -2.079 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.469      ;
+; -2.079 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.469      ;
+; -2.074 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.426      ;
+; -2.066 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.418      ;
+; -2.058 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.978      ;
+; -2.057 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.977      ;
+; -2.054 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.444      ;
+; -2.054 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.444      ;
+; -2.054 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.444      ;
+; -2.036 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.426      ;
+; -2.036 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.426      ;
+; -2.036 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.426      ;
+; -2.028 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.948      ;
+; -2.025 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.377      ;
+; -2.017 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.081     ; 2.937      ;
+; -1.994 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.914      ;
+; -1.981 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.081     ; 2.901      ;
+; -1.980 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.332      ;
+; -1.961 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.881      ;
+; -1.959 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.311      ;
+; -1.958 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.878      ;
+; -1.957 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.877      ;
+; -1.956 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.308      ;
+; -1.938 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.858      ;
+; -1.938 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.858      ;
+; -1.934 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.081     ; 2.854      ;
+; -1.928 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.318      ;
+; -1.928 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.318      ;
+; -1.928 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.318      ;
+; -1.912 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.832      ;
+; -1.911 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.831      ;
+; -1.907 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.827      ;
+; -1.903 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.293      ;
+; -1.903 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.293      ;
+; -1.903 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.293      ;
+; -1.896 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.286      ;
+; -1.896 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.286      ;
+; -1.896 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.286      ;
+; -1.888 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.278      ;
+; -1.888 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.278      ;
+; -1.888 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.278      ;
+; -1.882 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.802      ;
+; -1.881 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.801      ;
+; -1.874 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.226      ;
+; -1.867 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.219      ;
+; -1.848 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.768      ;
+; -1.834 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.081     ; 2.754      ;
+; -1.820 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.740      ;
+; -1.815 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.735      ;
+; -1.812 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.732      ;
+; -1.811 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.731      ;
+; -1.792 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.712      ;
+; -1.792 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.712      ;
+; -1.787 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.707      ;
+; -1.784 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.081     ; 2.704      ;
+; -1.783 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.135      ;
+; -1.782 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.172      ;
+; -1.782 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.172      ;
+; -1.782 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.172      ;
+; -1.780 ; key_jitter:key_jitter_inst|key_down_check[2] ; key_jitter:key_jitter_inst|key_valid_r0      ; clk          ; clk         ; 1.000        ; -0.571     ; 2.210      ;
+; -1.778 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.168      ;
+; -1.778 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.168      ;
+; -1.778 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.168      ;
+; -1.777 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.697      ;
+; -1.766 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.686      ;
+; -1.765 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.685      ;
+; -1.761 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.681      ;
+; -1.745 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.097      ;
+; -1.742 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.094      ;
+; -1.737 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.127      ;
+; -1.737 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.127      ;
+; -1.737 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.127      ;
+; -1.736 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.656      ;
+; -1.735 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.655      ;
+; -1.731 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.651      ;
+; -1.728 ; key_jitter:key_jitter_inst|cnt0[15]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.351      ; 3.080      ;
+; -1.716 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.106      ;
+; -1.716 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.106      ;
+; -1.716 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.389      ; 3.106      ;
+; -1.702 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 1.000        ; -0.081     ; 2.622      ;
++--------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Hold: 'clk'                                                                                                                                         ;
++-------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                    ; To Node                                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.453 ; cnt_pwm[2]                                   ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; cnt_pwm[1]                                   ; cnt_pwm[1]                                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; cnt_pwm[0]                                   ; cnt_pwm[0]                                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; cnt_8[2]                                     ; cnt_8[2]                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.453 ; cnt_8[1]                                     ; cnt_8[1]                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.746      ;
+; 0.465 ; cnt_8[0]                                     ; cnt_8[0]                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.758      ;
+; 0.492 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.081      ; 0.785      ;
+; 0.493 ; cnt_pwm[1]                                   ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.786      ;
+; 0.498 ; key_jitter:key_jitter_inst|key_valid         ; cnt_pwm[0]                                   ; clk          ; clk         ; 0.000        ; 0.081      ; 0.791      ;
+; 0.499 ; cnt_8[1]                                     ; cnt_8[2]                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 0.792      ;
+; 0.502 ; key_jitter:key_jitter_inst|key_valid_r0      ; key_jitter:key_jitter_inst|key_valid_r1      ; clk          ; clk         ; 0.000        ; 0.081      ; 0.795      ;
+; 0.508 ; key_jitter:key_jitter_inst|key_valid_r1      ; key_jitter:key_jitter_inst|key_valid         ; clk          ; clk         ; 0.000        ; 0.081      ; 0.801      ;
+; 0.510 ; key_jitter:key_jitter_inst|key_valid_r1      ; key_jitter:key_jitter_inst|key_valid_r2      ; clk          ; clk         ; 0.000        ; 0.081      ; 0.803      ;
+; 0.629 ; key_jitter:key_jitter_inst|key_valid_r2      ; key_jitter:key_jitter_inst|key_valid         ; clk          ; clk         ; 0.000        ; 0.081      ; 0.922      ;
+; 0.681 ; key_jitter:key_jitter_inst|key_down_check[1] ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 0.000        ; 0.101      ; 0.994      ;
+; 0.745 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.038      ;
+; 0.745 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.038      ;
+; 0.745 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.038      ;
+; 0.745 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.038      ;
+; 0.745 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.038      ;
+; 0.746 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.039      ;
+; 0.746 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[2]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.039      ;
+; 0.748 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.041      ;
+; 0.748 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.041      ;
+; 0.749 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.042      ;
+; 0.754 ; cnt_pwm[0]                                   ; cnt_pwm[1]                                   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.047      ;
+; 0.757 ; key_jitter:key_jitter_inst|key_valid         ; cnt_pwm[1]                                   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.050      ;
+; 0.759 ; cnt_8[0]                                     ; cnt_8[1]                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 1.052      ;
+; 0.759 ; cnt_pwm[0]                                   ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.052      ;
+; 0.759 ; key_jitter:key_jitter_inst|key_valid         ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.081      ; 1.052      ;
+; 0.762 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
+; 0.762 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.055      ;
+; 0.764 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.057      ;
+; 0.766 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[1]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.059      ;
+; 0.769 ; cnt_pwm[2]                                   ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.062      ;
+; 0.773 ; cnt_8[2]                                     ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.066      ;
+; 0.791 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[1]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.084      ;
+; 0.897 ; key_jitter:key_jitter_inst|key_down_check[0] ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 0.000        ; 0.139      ; 1.248      ;
+; 0.917 ; cnt_8[1]                                     ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.210      ;
+; 0.959 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.252      ;
+; 0.959 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|cnt0[12]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.252      ;
+; 0.968 ; key_jitter:key_jitter_inst|cnt0[15]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.261      ;
+; 1.041 ; cnt_8[0]                                     ; cnt_8[2]                                     ; clk          ; clk         ; 0.000        ; 0.081      ; 1.334      ;
+; 1.089 ; key_jitter:key_jitter_inst|key_down_check[2] ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 0.000        ; 0.101      ; 1.402      ;
+; 1.099 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.392      ;
+; 1.099 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.392      ;
+; 1.100 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.393      ;
+; 1.100 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.393      ;
+; 1.102 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.395      ;
+; 1.106 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.399      ;
+; 1.106 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.399      ;
+; 1.107 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.400      ;
+; 1.109 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.402      ;
+; 1.109 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[2]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.402      ;
+; 1.110 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.403      ;
+; 1.115 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.408      ;
+; 1.116 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.409      ;
+; 1.116 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.409      ;
+; 1.118 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.411      ;
+; 1.118 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.411      ;
+; 1.119 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.412      ;
+; 1.125 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[12]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.418      ;
+; 1.133 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[2]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.426      ;
+; 1.134 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.427      ;
+; 1.142 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.435      ;
+; 1.172 ; cnt_pwm[0]                                   ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.465      ;
+; 1.230 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.523      ;
+; 1.230 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.523      ;
+; 1.231 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.524      ;
+; 1.231 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.524      ;
+; 1.239 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.532      ;
+; 1.240 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.533      ;
+; 1.240 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.533      ;
+; 1.246 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.539      ;
+; 1.246 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.539      ;
+; 1.247 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.540      ;
+; 1.247 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[12]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.540      ;
+; 1.247 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.540      ;
+; 1.249 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.542      ;
+; 1.249 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.542      ;
+; 1.255 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.548      ;
+; 1.256 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.549      ;
+; 1.256 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.549      ;
+; 1.256 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.549      ;
+; 1.258 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.551      ;
+; 1.258 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.551      ;
+; 1.265 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.558      ;
+; 1.273 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.566      ;
+; 1.274 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.567      ;
+; 1.282 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.575      ;
+; 1.293 ; key_jitter:key_jitter_inst|cnt0[9]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.586      ;
+; 1.295 ; key_jitter:key_jitter_inst|cnt0[15]          ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.588      ;
+; 1.306 ; cnt_pwm[1]                                   ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.081      ; 1.599      ;
+; 1.309 ; key_jitter:key_jitter_inst|cnt0[9]           ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.602      ;
+; 1.314 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.607      ;
+; 1.314 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.607      ;
+; 1.342 ; key_jitter:key_jitter_inst|cnt0[15]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.635      ;
+; 1.370 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.081      ; 1.663      ;
+; 1.370 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.663      ;
+; 1.371 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.081      ; 1.664      ;
++-------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width: 'clk'                                                                              ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                       ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                                          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_8[0]                                     ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_8[1]                                     ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_8[2]                                     ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_pwm[0]                                   ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_pwm[1]                                   ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_pwm[2]                                   ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[10]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[11]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[12]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[13]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[14]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[15]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[16]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[17]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[18]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[19]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[1]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[2]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[3]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[4]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[5]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[6]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[7]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[8]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[9]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[0] ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[1] ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[2] ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[3] ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid         ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r0      ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r1      ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r2      ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; led_r                                        ;
+; 0.253  ; 0.473        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[0] ;
+; 0.259  ; 0.479        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[1] ;
+; 0.259  ; 0.479        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[2] ;
+; 0.259  ; 0.479        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[3] ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; cnt_8[0]                                     ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; cnt_8[1]                                     ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; cnt_8[2]                                     ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; cnt_pwm[0]                                   ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; cnt_pwm[1]                                   ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; cnt_pwm[2]                                   ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[10]          ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[11]          ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[12]          ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[13]          ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[14]          ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[15]          ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[16]          ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[17]          ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[18]          ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[19]          ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[1]           ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[2]           ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[3]           ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[4]           ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[5]           ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[6]           ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[7]           ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[8]           ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[9]           ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid         ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r0      ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r1      ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r2      ;
+; 0.283  ; 0.503        ; 0.220          ; High Pulse Width ; clk   ; Rise       ; led_r                                        ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; cnt_8[0]                                     ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; cnt_8[1]                                     ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; cnt_8[2]                                     ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; cnt_pwm[0]                                   ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; cnt_pwm[1]                                   ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; cnt_pwm[2]                                   ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[10]          ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[11]          ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[12]          ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[13]          ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[14]          ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[15]          ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[16]          ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[17]          ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[18]          ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[19]          ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[1]           ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[2]           ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[3]           ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[4]           ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[5]           ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[6]           ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[7]           ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[8]           ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[9]           ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid         ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r0      ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r1      ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r2      ;
+; 0.308  ; 0.496        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; led_r                                        ;
+; 0.331  ; 0.519        ; 0.188          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[1] ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; key_n     ; clk        ; -0.749 ; -0.538 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; key_n     ; clk        ; 1.139 ; 0.922 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; led       ; clk        ; 8.341 ; 8.215 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; led       ; clk        ; 8.048 ; 7.926 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+----------------------------------------------
+; Slow 1200mV 85C Model Metastability Report ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                                                         ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note                                                          ;
++------------+-----------------+------------+---------------------------------------------------------------+
+; 320.62 MHz ; 250.0 MHz       ; clk        ; limit due to minimum period restriction (max I/O toggle rate) ;
++------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -2.119 ; -35.677           ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Slow 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.402 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Slow 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -53.558                         ;
++-------+--------+---------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Setup: 'clk'                                                                                                                                          ;
++--------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                    ; To Node                                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.119 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.454      ;
+; -2.103 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.438      ;
+; -2.102 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.437      ;
+; -2.101 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.436      ;
+; -2.006 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.341      ;
+; -2.002 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.337      ;
+; -1.905 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.278      ;
+; -1.905 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.278      ;
+; -1.905 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.278      ;
+; -1.873 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.208      ;
+; -1.870 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.205      ;
+; -1.870 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.243      ;
+; -1.870 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.243      ;
+; -1.870 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.243      ;
+; -1.863 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.236      ;
+; -1.863 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.236      ;
+; -1.863 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.236      ;
+; -1.862 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.235      ;
+; -1.862 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.235      ;
+; -1.862 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.235      ;
+; -1.848 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.183      ;
+; -1.845 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.180      ;
+; -1.837 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.767      ;
+; -1.824 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.159      ;
+; -1.807 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.142      ;
+; -1.779 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.709      ;
+; -1.775 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.148      ;
+; -1.775 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.148      ;
+; -1.775 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.148      ;
+; -1.774 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.704      ;
+; -1.771 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.072     ; 2.701      ;
+; -1.766 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.139      ;
+; -1.766 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.139      ;
+; -1.766 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.139      ;
+; -1.756 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.686      ;
+; -1.750 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.085      ;
+; -1.747 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.677      ;
+; -1.725 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.060      ;
+; -1.714 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 3.049      ;
+; -1.713 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.072     ; 2.643      ;
+; -1.711 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.641      ;
+; -1.710 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.640      ;
+; -1.681 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.072     ; 2.611      ;
+; -1.672 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.602      ;
+; -1.653 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.583      ;
+; -1.648 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.578      ;
+; -1.644 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.072     ; 2.574      ;
+; -1.633 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.006      ;
+; -1.633 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.006      ;
+; -1.633 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.006      ;
+; -1.630 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.003      ;
+; -1.630 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.003      ;
+; -1.630 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 3.003      ;
+; -1.630 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.560      ;
+; -1.628 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.558      ;
+; -1.621 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.551      ;
+; -1.619 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.549      ;
+; -1.616 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 2.951      ;
+; -1.613 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.986      ;
+; -1.613 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.986      ;
+; -1.613 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.986      ;
+; -1.608 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.981      ;
+; -1.608 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.981      ;
+; -1.608 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.981      ;
+; -1.592 ; key_jitter:key_jitter_inst|cnt0[15]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 2.927      ;
+; -1.585 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.515      ;
+; -1.585 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 2.920      ;
+; -1.585 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.333      ; 2.920      ;
+; -1.584 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.957      ;
+; -1.584 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.957      ;
+; -1.584 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.957      ;
+; -1.584 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.514      ;
+; -1.582 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.512      ;
+; -1.573 ; key_jitter:key_jitter_inst|key_down_check[2] ; key_jitter:key_jitter_inst|key_valid_r0      ; clk          ; clk         ; 1.000        ; -0.534     ; 2.041      ;
+; -1.567 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.940      ;
+; -1.567 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.940      ;
+; -1.567 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.940      ;
+; -1.553 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.072     ; 2.483      ;
+; -1.546 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.476      ;
+; -1.545 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.475      ;
+; -1.527 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.457      ;
+; -1.522 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.452      ;
+; -1.516 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.072     ; 2.446      ;
+; -1.510 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.883      ;
+; -1.510 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.883      ;
+; -1.510 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.883      ;
+; -1.504 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.434      ;
+; -1.503 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.433      ;
+; -1.502 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.432      ;
+; -1.499 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.429      ;
+; -1.495 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.425      ;
+; -1.493 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.423      ;
+; -1.485 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.858      ;
+; -1.485 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.858      ;
+; -1.485 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.858      ;
+; -1.474 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.847      ;
+; -1.474 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.847      ;
+; -1.474 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.371      ; 2.847      ;
+; -1.469 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.399      ;
+; -1.459 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 1.000        ; -0.072     ; 2.389      ;
++--------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Hold: 'clk'                                                                                                                                          ;
++-------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                    ; To Node                                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.402 ; cnt_pwm[2]                                   ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; cnt_pwm[1]                                   ; cnt_pwm[1]                                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; cnt_pwm[0]                                   ; cnt_pwm[0]                                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; cnt_8[2]                                     ; cnt_8[2]                                     ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.402 ; cnt_8[1]                                     ; cnt_8[1]                                     ; clk          ; clk         ; 0.000        ; 0.072      ; 0.669      ;
+; 0.417 ; cnt_8[0]                                     ; cnt_8[0]                                     ; clk          ; clk         ; 0.000        ; 0.072      ; 0.684      ;
+; 0.457 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.724      ;
+; 0.458 ; cnt_pwm[1]                                   ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.725      ;
+; 0.461 ; cnt_8[1]                                     ; cnt_8[2]                                     ; clk          ; clk         ; 0.000        ; 0.072      ; 0.728      ;
+; 0.463 ; key_jitter:key_jitter_inst|key_valid         ; cnt_pwm[0]                                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.730      ;
+; 0.471 ; key_jitter:key_jitter_inst|key_valid_r0      ; key_jitter:key_jitter_inst|key_valid_r1      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.738      ;
+; 0.477 ; key_jitter:key_jitter_inst|key_valid_r1      ; key_jitter:key_jitter_inst|key_valid         ; clk          ; clk         ; 0.000        ; 0.072      ; 0.744      ;
+; 0.478 ; key_jitter:key_jitter_inst|key_valid_r1      ; key_jitter:key_jitter_inst|key_valid_r2      ; clk          ; clk         ; 0.000        ; 0.072      ; 0.745      ;
+; 0.584 ; key_jitter:key_jitter_inst|key_valid_r2      ; key_jitter:key_jitter_inst|key_valid         ; clk          ; clk         ; 0.000        ; 0.072      ; 0.851      ;
+; 0.630 ; key_jitter:key_jitter_inst|key_down_check[1] ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 0.000        ; 0.091      ; 0.916      ;
+; 0.691 ; cnt_8[0]                                     ; cnt_8[1]                                     ; clk          ; clk         ; 0.000        ; 0.072      ; 0.958      ;
+; 0.693 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.072      ; 0.960      ;
+; 0.693 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.072      ; 0.960      ;
+; 0.694 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.961      ;
+; 0.695 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.962      ;
+; 0.695 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.072      ; 0.962      ;
+; 0.695 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.072      ; 0.962      ;
+; 0.696 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.963      ;
+; 0.696 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[2]           ; clk          ; clk         ; 0.000        ; 0.072      ; 0.963      ;
+; 0.697 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.072      ; 0.964      ;
+; 0.700 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.967      ;
+; 0.703 ; cnt_pwm[0]                                   ; cnt_pwm[1]                                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.970      ;
+; 0.705 ; key_jitter:key_jitter_inst|key_valid         ; cnt_pwm[1]                                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.972      ;
+; 0.708 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.975      ;
+; 0.708 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.072      ; 0.975      ;
+; 0.708 ; cnt_pwm[0]                                   ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.975      ;
+; 0.708 ; key_jitter:key_jitter_inst|key_valid         ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.072      ; 0.975      ;
+; 0.711 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.072      ; 0.978      ;
+; 0.718 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[1]           ; clk          ; clk         ; 0.000        ; 0.072      ; 0.985      ;
+; 0.722 ; cnt_pwm[2]                                   ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.072      ; 0.989      ;
+; 0.726 ; cnt_8[2]                                     ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.072      ; 0.993      ;
+; 0.740 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[1]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.007      ;
+; 0.824 ; key_jitter:key_jitter_inst|key_down_check[0] ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 0.000        ; 0.129      ; 1.148      ;
+; 0.843 ; cnt_8[1]                                     ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.072      ; 1.110      ;
+; 0.863 ; key_jitter:key_jitter_inst|cnt0[15]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.130      ;
+; 0.879 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.146      ;
+; 0.880 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|cnt0[12]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.147      ;
+; 0.938 ; cnt_8[0]                                     ; cnt_8[2]                                     ; clk          ; clk         ; 0.000        ; 0.072      ; 1.205      ;
+; 0.987 ; key_jitter:key_jitter_inst|key_down_check[2] ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 0.000        ; 0.091      ; 1.273      ;
+; 1.012 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.279      ;
+; 1.014 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.281      ;
+; 1.014 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.281      ;
+; 1.016 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.283      ;
+; 1.016 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.283      ;
+; 1.017 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.284      ;
+; 1.018 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[2]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.285      ;
+; 1.019 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.286      ;
+; 1.019 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.286      ;
+; 1.020 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.287      ;
+; 1.020 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.287      ;
+; 1.029 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.296      ;
+; 1.029 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[12]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.296      ;
+; 1.029 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.296      ;
+; 1.031 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.298      ;
+; 1.032 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.299      ;
+; 1.033 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.300      ;
+; 1.034 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.301      ;
+; 1.036 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[2]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.303      ;
+; 1.045 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.312      ;
+; 1.051 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.318      ;
+; 1.085 ; cnt_pwm[0]                                   ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.072      ; 1.352      ;
+; 1.113 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.380      ;
+; 1.114 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.381      ;
+; 1.116 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.383      ;
+; 1.117 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.384      ;
+; 1.126 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[12]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.393      ;
+; 1.127 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.394      ;
+; 1.134 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.401      ;
+; 1.136 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.403      ;
+; 1.136 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.403      ;
+; 1.138 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.405      ;
+; 1.138 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.405      ;
+; 1.140 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.407      ;
+; 1.141 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.408      ;
+; 1.142 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.409      ;
+; 1.149 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.416      ;
+; 1.151 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.418      ;
+; 1.151 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.418      ;
+; 1.153 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.420      ;
+; 1.154 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.421      ;
+; 1.154 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.421      ;
+; 1.155 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.422      ;
+; 1.158 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.425      ;
+; 1.159 ; key_jitter:key_jitter_inst|cnt0[15]          ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.426      ;
+; 1.160 ; key_jitter:key_jitter_inst|cnt0[9]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.427      ;
+; 1.167 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.434      ;
+; 1.173 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.440      ;
+; 1.213 ; cnt_pwm[1]                                   ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.072      ; 1.480      ;
+; 1.224 ; key_jitter:key_jitter_inst|cnt0[9]           ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.491      ;
+; 1.227 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.494      ;
+; 1.227 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.494      ;
+; 1.236 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.503      ;
+; 1.238 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.505      ;
+; 1.239 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.072      ; 1.506      ;
+; 1.248 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 0.000        ; 0.072      ; 1.515      ;
++-------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width: 'clk'                                                                               ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                                       ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate        ; clk   ; Rise       ; clk                                          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_8[0]                                     ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_8[1]                                     ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_8[2]                                     ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_pwm[0]                                   ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_pwm[1]                                   ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; cnt_pwm[2]                                   ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[10]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[11]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[12]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[13]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[14]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[15]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[16]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[17]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[18]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[19]          ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[1]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[2]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[3]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[4]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[5]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[6]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[7]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[8]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[9]           ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[0] ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[1] ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[2] ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[3] ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid         ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r0      ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r1      ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r2      ;
+; -1.487 ; 1.000        ; 2.487          ; Min Period       ; clk   ; Rise       ; led_r                                        ;
+; 0.224  ; 0.440        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[0] ;
+; 0.225  ; 0.441        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[1] ;
+; 0.225  ; 0.441        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[2] ;
+; 0.225  ; 0.441        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[3] ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; cnt_8[0]                                     ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; cnt_8[1]                                     ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; cnt_8[2]                                     ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; cnt_pwm[0]                                   ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; cnt_pwm[1]                                   ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; cnt_pwm[2]                                   ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[10]          ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[11]          ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[12]          ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[13]          ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[14]          ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[15]          ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[16]          ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[17]          ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[18]          ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[19]          ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[1]           ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[2]           ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[3]           ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[4]           ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[5]           ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[6]           ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[7]           ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[8]           ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[9]           ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid         ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r0      ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r1      ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r2      ;
+; 0.274  ; 0.490        ; 0.216          ; High Pulse Width ; clk   ; Rise       ; led_r                                        ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; cnt_8[0]                                     ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; cnt_8[1]                                     ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; cnt_8[2]                                     ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; cnt_pwm[0]                                   ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; cnt_pwm[1]                                   ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; cnt_pwm[2]                                   ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[10]          ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[11]          ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[12]          ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[13]          ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[14]          ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[15]          ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[16]          ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[17]          ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[18]          ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[19]          ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[1]           ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[2]           ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[3]           ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[4]           ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[5]           ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[6]           ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[7]           ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[8]           ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[9]           ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid         ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r0      ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r1      ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r2      ;
+; 0.324  ; 0.508        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; led_r                                        ;
+; 0.371  ; 0.555        ; 0.184          ; Low Pulse Width  ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[1] ;
++--------+--------------+----------------+------------------+-------+------------+----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; key_n     ; clk        ; -0.707 ; -0.395 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; key_n     ; clk        ; 1.059 ; 0.748 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; led       ; clk        ; 7.683 ; 7.415 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; led       ; clk        ; 7.394 ; 7.135 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Slow 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++------------------------------------+
+; Fast 1200mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -0.511 ; -4.898            ;
++-------+--------+-------------------+
+
+
++-----------------------------------+
+; Fast 1200mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.186 ; 0.000             ;
++-------+-------+-------------------+
+
+
+-----------------------------------------
+; Fast 1200mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1200mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++--------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -3.000 ; -39.284                         ;
++-------+--------+---------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Setup: 'clk'                                                                                                                                 ;
++--------+-------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                           ; To Node                                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -0.511 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.637      ;
+; -0.498 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.624      ;
+; -0.468 ; key_jitter:key_jitter_inst|cnt0[16] ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.594      ;
+; -0.462 ; key_jitter:key_jitter_inst|cnt0[19] ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.588      ;
+; -0.435 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.561      ;
+; -0.430 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.569      ;
+; -0.430 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.569      ;
+; -0.430 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.569      ;
+; -0.424 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.374      ;
+; -0.417 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.556      ;
+; -0.417 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.556      ;
+; -0.417 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.556      ;
+; -0.402 ; key_jitter:key_jitter_inst|cnt0[17] ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.528      ;
+; -0.389 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.339      ;
+; -0.387 ; key_jitter:key_jitter_inst|cnt0[16] ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.526      ;
+; -0.387 ; key_jitter:key_jitter_inst|cnt0[16] ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.526      ;
+; -0.387 ; key_jitter:key_jitter_inst|cnt0[16] ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.526      ;
+; -0.381 ; key_jitter:key_jitter_inst|cnt0[19] ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.520      ;
+; -0.381 ; key_jitter:key_jitter_inst|cnt0[19] ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.520      ;
+; -0.381 ; key_jitter:key_jitter_inst|cnt0[19] ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.520      ;
+; -0.377 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.327      ;
+; -0.365 ; key_jitter:key_jitter_inst|cnt0[5]  ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.491      ;
+; -0.363 ; key_jitter:key_jitter_inst|cnt0[3]  ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.489      ;
+; -0.361 ; key_jitter:key_jitter_inst|cnt0[4]  ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.487      ;
+; -0.360 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.310      ;
+; -0.357 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.307      ;
+; -0.356 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.306      ;
+; -0.355 ; key_jitter:key_jitter_inst|cnt0[4]  ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.305      ;
+; -0.354 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.493      ;
+; -0.354 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.493      ;
+; -0.354 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.493      ;
+; -0.344 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.294      ;
+; -0.328 ; key_jitter:key_jitter_inst|cnt0[18] ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.454      ;
+; -0.325 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.037     ; 1.275      ;
+; -0.321 ; key_jitter:key_jitter_inst|cnt0[17] ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.460      ;
+; -0.321 ; key_jitter:key_jitter_inst|cnt0[17] ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.460      ;
+; -0.321 ; key_jitter:key_jitter_inst|cnt0[17] ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.460      ;
+; -0.321 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.271      ;
+; -0.318 ; key_jitter:key_jitter_inst|cnt0[12] ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.444      ;
+; -0.315 ; key_jitter:key_jitter_inst|cnt0[13] ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.441      ;
+; -0.309 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.259      ;
+; -0.307 ; key_jitter:key_jitter_inst|cnt0[3]  ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.257      ;
+; -0.301 ; key_jitter:key_jitter_inst|cnt0[7]  ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.427      ;
+; -0.292 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.242      ;
+; -0.291 ; key_jitter:key_jitter_inst|cnt0[4]  ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.241      ;
+; -0.290 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.037     ; 1.240      ;
+; -0.289 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.239      ;
+; -0.288 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.238      ;
+; -0.287 ; key_jitter:key_jitter_inst|cnt0[6]  ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.237      ;
+; -0.287 ; key_jitter:key_jitter_inst|cnt0[4]  ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.237      ;
+; -0.284 ; key_jitter:key_jitter_inst|cnt0[5]  ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.423      ;
+; -0.284 ; key_jitter:key_jitter_inst|cnt0[5]  ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.423      ;
+; -0.284 ; key_jitter:key_jitter_inst|cnt0[5]  ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.423      ;
+; -0.282 ; key_jitter:key_jitter_inst|cnt0[3]  ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.421      ;
+; -0.282 ; key_jitter:key_jitter_inst|cnt0[3]  ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.421      ;
+; -0.282 ; key_jitter:key_jitter_inst|cnt0[3]  ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.421      ;
+; -0.280 ; key_jitter:key_jitter_inst|cnt0[4]  ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.419      ;
+; -0.280 ; key_jitter:key_jitter_inst|cnt0[4]  ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.419      ;
+; -0.280 ; key_jitter:key_jitter_inst|cnt0[4]  ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.419      ;
+; -0.278 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.037     ; 1.228      ;
+; -0.276 ; key_jitter:key_jitter_inst|cnt0[3]  ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.226      ;
+; -0.276 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.226      ;
+; -0.256 ; key_jitter:key_jitter_inst|cnt0[4]  ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.037     ; 1.206      ;
+; -0.255 ; key_jitter:key_jitter_inst|cnt0[14] ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.381      ;
+; -0.253 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.203      ;
+; -0.247 ; key_jitter:key_jitter_inst|cnt0[18] ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.386      ;
+; -0.247 ; key_jitter:key_jitter_inst|cnt0[18] ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.386      ;
+; -0.247 ; key_jitter:key_jitter_inst|cnt0[18] ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.386      ;
+; -0.245 ; key_jitter:key_jitter_inst|cnt0[11] ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.371      ;
+; -0.241 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.191      ;
+; -0.239 ; key_jitter:key_jitter_inst|cnt0[5]  ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.189      ;
+; -0.239 ; key_jitter:key_jitter_inst|cnt0[3]  ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.189      ;
+; -0.237 ; key_jitter:key_jitter_inst|cnt0[12] ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.376      ;
+; -0.237 ; key_jitter:key_jitter_inst|cnt0[12] ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.376      ;
+; -0.237 ; key_jitter:key_jitter_inst|cnt0[12] ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.376      ;
+; -0.234 ; key_jitter:key_jitter_inst|cnt0[13] ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.373      ;
+; -0.234 ; key_jitter:key_jitter_inst|cnt0[13] ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.373      ;
+; -0.234 ; key_jitter:key_jitter_inst|cnt0[13] ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.373      ;
+; -0.227 ; key_jitter:key_jitter_inst|cnt0[6]  ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.353      ;
+; -0.225 ; key_jitter:key_jitter_inst|cnt0[8]  ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.175      ;
+; -0.224 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.174      ;
+; -0.223 ; key_jitter:key_jitter_inst|cnt0[6]  ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.173      ;
+; -0.223 ; key_jitter:key_jitter_inst|cnt0[4]  ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.173      ;
+; -0.221 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.171      ;
+; -0.220 ; key_jitter:key_jitter_inst|cnt0[2]  ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.170      ;
+; -0.220 ; key_jitter:key_jitter_inst|cnt0[7]  ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.359      ;
+; -0.220 ; key_jitter:key_jitter_inst|cnt0[7]  ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.359      ;
+; -0.220 ; key_jitter:key_jitter_inst|cnt0[7]  ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 1.000        ; 0.152      ; 1.359      ;
+; -0.219 ; key_jitter:key_jitter_inst|cnt0[6]  ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.169      ;
+; -0.219 ; key_jitter:key_jitter_inst|cnt0[4]  ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.169      ;
+; -0.210 ; key_jitter:key_jitter_inst|cnt0[8]  ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.336      ;
+; -0.209 ; key_jitter:key_jitter_inst|cnt0[5]  ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.159      ;
+; -0.209 ; key_jitter:key_jitter_inst|cnt0[10] ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.335      ;
+; -0.208 ; key_jitter:key_jitter_inst|cnt0[3]  ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.037     ; 1.158      ;
+; -0.208 ; key_jitter:key_jitter_inst|cnt0[3]  ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.158      ;
+; -0.208 ; key_jitter:key_jitter_inst|cnt0[1]  ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.158      ;
+; -0.188 ; key_jitter:key_jitter_inst|cnt0[6]  ; key_jitter:key_jitter_inst|cnt0[9]           ; clk          ; clk         ; 1.000        ; -0.037     ; 1.138      ;
+; -0.185 ; cnt_8[0]                            ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.135      ;
+; -0.181 ; key_jitter:key_jitter_inst|cnt0[9]  ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 1.000        ; -0.037     ; 1.131      ;
+; -0.181 ; key_jitter:key_jitter_inst|cnt0[15] ; key_jitter:key_jitter_inst|key_down_check[0] ; clk          ; clk         ; 1.000        ; 0.139      ; 1.307      ;
++--------+-------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Hold: 'clk'                                                                                                                                          ;
++-------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                    ; To Node                                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.186 ; cnt_pwm[2]                                   ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; cnt_pwm[1]                                   ; cnt_pwm[1]                                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; cnt_pwm[0]                                   ; cnt_pwm[0]                                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; cnt_8[2]                                     ; cnt_8[2]                                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.186 ; cnt_8[1]                                     ; cnt_8[1]                                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.307      ;
+; 0.193 ; key_jitter:key_jitter_inst|key_valid_r0      ; key_jitter:key_jitter_inst|key_valid_r1      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.193 ; cnt_8[0]                                     ; cnt_8[0]                                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.314      ;
+; 0.196 ; key_jitter:key_jitter_inst|key_valid_r1      ; key_jitter:key_jitter_inst|key_valid         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.317      ;
+; 0.197 ; key_jitter:key_jitter_inst|key_valid_r1      ; key_jitter:key_jitter_inst|key_valid_r2      ; clk          ; clk         ; 0.000        ; 0.037      ; 0.318      ;
+; 0.197 ; key_jitter:key_jitter_inst|cnt0[19]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.318      ;
+; 0.199 ; cnt_pwm[1]                                   ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.320      ;
+; 0.199 ; cnt_8[1]                                     ; cnt_8[2]                                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.320      ;
+; 0.200 ; key_jitter:key_jitter_inst|key_valid         ; cnt_pwm[0]                                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.321      ;
+; 0.254 ; key_jitter:key_jitter_inst|key_valid_r2      ; key_jitter:key_jitter_inst|key_valid         ; clk          ; clk         ; 0.000        ; 0.037      ; 0.375      ;
+; 0.262 ; key_jitter:key_jitter_inst|key_down_check[1] ; key_jitter:key_jitter_inst|key_down_check[2] ; clk          ; clk         ; 0.000        ; 0.044      ; 0.390      ;
+; 0.293 ; cnt_8[0]                                     ; cnt_8[1]                                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.414      ;
+; 0.297 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.418      ;
+; 0.297 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.418      ;
+; 0.298 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.298 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.298 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.298 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.298 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.298 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.298 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[2]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.419      ;
+; 0.300 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.421      ;
+; 0.303 ; cnt_pwm[0]                                   ; cnt_pwm[1]                                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.424      ;
+; 0.303 ; key_jitter:key_jitter_inst|key_valid         ; cnt_pwm[1]                                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.424      ;
+; 0.304 ; cnt_pwm[2]                                   ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.304 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[1]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.425      ;
+; 0.305 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.426      ;
+; 0.306 ; key_jitter:key_jitter_inst|key_valid         ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.427      ;
+; 0.307 ; cnt_pwm[0]                                   ; cnt_pwm[2]                                   ; clk          ; clk         ; 0.000        ; 0.037      ; 0.428      ;
+; 0.309 ; cnt_8[2]                                     ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.430      ;
+; 0.316 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[1]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.437      ;
+; 0.332 ; key_jitter:key_jitter_inst|key_down_check[0] ; key_jitter:key_jitter_inst|key_down_check[1] ; clk          ; clk         ; 0.000        ; 0.057      ; 0.473      ;
+; 0.356 ; cnt_8[1]                                     ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.477      ;
+; 0.370 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.491      ;
+; 0.370 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|cnt0[12]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.491      ;
+; 0.375 ; key_jitter:key_jitter_inst|cnt0[15]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.496      ;
+; 0.402 ; cnt_8[0]                                     ; cnt_8[2]                                     ; clk          ; clk         ; 0.000        ; 0.037      ; 0.523      ;
+; 0.414 ; key_jitter:key_jitter_inst|key_down_check[2] ; key_jitter:key_jitter_inst|key_down_check[3] ; clk          ; clk         ; 0.000        ; 0.044      ; 0.542      ;
+; 0.446 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.567      ;
+; 0.447 ; key_jitter:key_jitter_inst|cnt0[18]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.568      ;
+; 0.447 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.568      ;
+; 0.447 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.568      ;
+; 0.447 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.568      ;
+; 0.453 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.574      ;
+; 0.455 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.576      ;
+; 0.456 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.577      ;
+; 0.456 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.577      ;
+; 0.456 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.577      ;
+; 0.457 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[2]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.578      ;
+; 0.458 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.579      ;
+; 0.459 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.580      ;
+; 0.459 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.580      ;
+; 0.459 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.580      ;
+; 0.460 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.581      ;
+; 0.461 ; key_jitter:key_jitter_inst|cnt0[17]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.582      ;
+; 0.463 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[12]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.584      ;
+; 0.466 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.587      ;
+; 0.468 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[2]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.589      ;
+; 0.471 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[3]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.592      ;
+; 0.479 ; cnt_pwm[0]                                   ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.600      ;
+; 0.509 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.630      ;
+; 0.510 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.631      ;
+; 0.510 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.631      ;
+; 0.510 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[18]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.631      ;
+; 0.513 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.634      ;
+; 0.513 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.634      ;
+; 0.513 ; key_jitter:key_jitter_inst|cnt0[16]          ; key_jitter:key_jitter_inst|cnt0[19]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.634      ;
+; 0.516 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.637      ;
+; 0.516 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[12]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.637      ;
+; 0.519 ; key_jitter:key_jitter_inst|cnt0[8]           ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.640      ;
+; 0.519 ; key_jitter:key_jitter_inst|cnt0[14]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.640      ;
+; 0.519 ; key_jitter:key_jitter_inst|cnt0[12]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.640      ;
+; 0.519 ; key_jitter:key_jitter_inst|cnt0[10]          ; key_jitter:key_jitter_inst|cnt0[13]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.640      ;
+; 0.521 ; key_jitter:key_jitter_inst|cnt0[9]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.642      ;
+; 0.521 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.642      ;
+; 0.522 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.643      ;
+; 0.522 ; key_jitter:key_jitter_inst|cnt0[5]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.643      ;
+; 0.522 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.643      ;
+; 0.523 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.644      ;
+; 0.524 ; key_jitter:key_jitter_inst|cnt0[9]           ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.645      ;
+; 0.524 ; key_jitter:key_jitter_inst|cnt0[7]           ; key_jitter:key_jitter_inst|cnt0[11]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.645      ;
+; 0.525 ; key_jitter:key_jitter_inst|cnt0[13]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.646      ;
+; 0.525 ; key_jitter:key_jitter_inst|cnt0[3]           ; key_jitter:key_jitter_inst|cnt0[7]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.646      ;
+; 0.526 ; key_jitter:key_jitter_inst|cnt0[1]           ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.647      ;
+; 0.529 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[14]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.650      ;
+; 0.529 ; cnt_pwm[1]                                   ; led_r                                        ; clk          ; clk         ; 0.000        ; 0.037      ; 0.650      ;
+; 0.532 ; key_jitter:key_jitter_inst|cnt0[11]          ; key_jitter:key_jitter_inst|cnt0[15]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.653      ;
+; 0.533 ; key_jitter:key_jitter_inst|cnt0[15]          ; key_jitter:key_jitter_inst|cnt0[16]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.654      ;
+; 0.534 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[4]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.655      ;
+; 0.536 ; key_jitter:key_jitter_inst|cnt0[15]          ; key_jitter:key_jitter_inst|cnt0[17]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.657      ;
+; 0.537 ; cnt_8[0]                                     ; key_jitter:key_jitter_inst|cnt0[5]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.658      ;
+; 0.575 ; key_jitter:key_jitter_inst|cnt0[6]           ; key_jitter:key_jitter_inst|cnt0[10]          ; clk          ; clk         ; 0.000        ; 0.037      ; 0.696      ;
+; 0.576 ; key_jitter:key_jitter_inst|cnt0[4]           ; key_jitter:key_jitter_inst|cnt0[8]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.697      ;
+; 0.576 ; key_jitter:key_jitter_inst|cnt0[2]           ; key_jitter:key_jitter_inst|cnt0[6]           ; clk          ; clk         ; 0.000        ; 0.037      ; 0.697      ;
++-------+----------------------------------------------+----------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width: 'clk'                                                                              ;
++--------+--------------+----------------+-----------------+-------+------------+----------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type            ; Clock ; Clock Edge ; Target                                       ;
++--------+--------------+----------------+-----------------+-------+------------+----------------------------------------------+
+; -3.000 ; 1.000        ; 4.000          ; Port Rate       ; clk   ; Rise       ; clk                                          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; cnt_8[0]                                     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; cnt_8[1]                                     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; cnt_8[2]                                     ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; cnt_pwm[0]                                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; cnt_pwm[1]                                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; cnt_pwm[2]                                   ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[10]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[11]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[12]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[13]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[14]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[15]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[16]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[17]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[18]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[19]          ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[1]           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[2]           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[3]           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[4]           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[5]           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[6]           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[7]           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[8]           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[9]           ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[0] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[1] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[2] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[3] ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid         ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r0      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r1      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r2      ;
+; -1.000 ; 1.000        ; 2.000          ; Min Period      ; clk   ; Rise       ; led_r                                        ;
+; -0.085 ; 0.099        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[1] ;
+; -0.085 ; 0.099        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[2] ;
+; -0.085 ; 0.099        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[3] ;
+; -0.079 ; 0.105        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_down_check[0] ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; cnt_8[0]                                     ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; cnt_8[1]                                     ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; cnt_8[2]                                     ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; cnt_pwm[0]                                   ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; cnt_pwm[1]                                   ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; cnt_pwm[2]                                   ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[10]          ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[11]          ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[12]          ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[13]          ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[14]          ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[15]          ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[16]          ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[17]          ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[18]          ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[19]          ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[1]           ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[2]           ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[3]           ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[4]           ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[5]           ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[6]           ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[7]           ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[8]           ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|cnt0[9]           ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid         ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r0      ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r1      ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; key_jitter:key_jitter_inst|key_valid_r2      ;
+; -0.065 ; 0.119        ; 0.184          ; Low Pulse Width ; clk   ; Rise       ; led_r                                        ;
+; 0.095  ; 0.095        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|key_down_check[1]|clk        ;
+; 0.095  ; 0.095        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|key_down_check[2]|clk        ;
+; 0.095  ; 0.095        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|key_down_check[3]|clk        ;
+; 0.101  ; 0.101        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|key_down_check[0]|clk        ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; cnt_8[0]|clk                                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; cnt_8[1]|clk                                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; cnt_8[2]|clk                                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; cnt_pwm[0]|clk                               ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; cnt_pwm[1]|clk                               ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; cnt_pwm[2]|clk                               ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[10]|clk                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[11]|clk                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[12]|clk                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[13]|clk                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[14]|clk                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[15]|clk                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[16]|clk                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[17]|clk                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[18]|clk                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[19]|clk                 ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[1]|clk                  ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[2]|clk                  ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[3]|clk                  ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[4]|clk                  ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[5]|clk                  ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[6]|clk                  ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[7]|clk                  ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[8]|clk                  ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|cnt0[9]|clk                  ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|key_valid_r0|clk             ;
+; 0.115  ; 0.115        ; 0.000          ; Low Pulse Width ; clk   ; Rise       ; key_jitter_inst|key_valid_r1|clk             ;
++--------+--------------+----------------+-----------------+-------+------------+----------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; key_n     ; clk        ; -0.342 ; -0.009 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; key_n     ; clk        ; 0.509 ; 0.167 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; led       ; clk        ; 3.857 ; 4.031 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; led       ; clk        ; 3.729 ; 3.895 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
+---------------------------------------------
+; Fast 1200mV 0C Model Metastability Report ;
+---------------------------------------------
+No synchronizer chains to report.
+
+
++-------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                           ;
++------------------+---------+-------+----------+---------+---------------------+
+; Clock            ; Setup   ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+---------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -2.409  ; 0.186 ; N/A      ; N/A     ; -3.000              ;
+;  clk             ; -2.409  ; 0.186 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS  ; -42.86  ; 0.0   ; 0.0      ; 0.0     ; -53.558             ;
+;  clk             ; -42.860 ; 0.000 ; N/A      ; N/A     ; -53.558             ;
++------------------+---------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; key_n     ; clk        ; -0.342 ; -0.009 ; Rise       ; clk             ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Hold Times                                                            ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; key_n     ; clk        ; 1.139 ; 0.922 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; led       ; clk        ; 8.341 ; 8.215 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; led       ; clk        ; 3.729 ; 3.895 ; Rise       ; clk             ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                          ;
++-----+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++-----+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; led ; 2.5 V        ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++-----+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++----------------------------------------------------------+
+; Input Transition Times                                   ;
++-------+--------------+-----------------+-----------------+
+; Pin   ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-------+--------------+-----------------+-----------------+
+; clk   ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; key_n ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-------+--------------+-----------------+-----------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
++-----+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++-----+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; led ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.8e-09 V                    ; 2.37 V              ; -0.00373 V          ; 0.104 V                              ; 0.011 V                              ; 4.34e-10 s                  ; 3.82e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.8e-09 V                   ; 2.37 V             ; -0.00373 V         ; 0.104 V                             ; 0.011 V                             ; 4.34e-10 s                 ; 3.82e-10 s                 ; Yes                       ; Yes                       ;
++-----+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1200mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ;
++-----+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++-----+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; led ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.32 V                       ; 2.85e-07 V                   ; 2.35 V              ; -0.0123 V           ; 0.144 V                              ; 0.042 V                              ; 4.81e-10 s                  ; 4.81e-10 s                  ; Yes                        ; Yes                        ; 2.32 V                      ; 2.85e-07 V                  ; 2.35 V             ; -0.0123 V          ; 0.144 V                             ; 0.042 V                             ; 4.81e-10 s                 ; 4.81e-10 s                 ; Yes                       ; Yes                       ;
++-----+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1200mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ;
++-----+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++-----+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; led ; 2.5 V        ; 0 s                 ; 0 s                 ; 2.62 V                       ; 4.05e-08 V                   ; 2.72 V              ; -0.0349 V           ; 0.173 V                              ; 0.1 V                                ; 2.72e-10 s                  ; 2.69e-10 s                  ; Yes                        ; Yes                        ; 2.62 V                      ; 4.05e-08 V                  ; 2.72 V             ; -0.0349 V          ; 0.173 V                             ; 0.1 V                               ; 2.72e-10 s                 ; 2.69e-10 s                 ; Yes                       ; Yes                       ;
++-----+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 325      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 325      ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 1     ; 1    ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 1     ; 1    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
+    Info: Processing started: Mon Mar 24 21:40:44 2025
+Info: Command: quartus_sta top_fpga -c top_fpga
+Info: qsta_default_script.tcl version: #1
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'top_fpga.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk clk
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1200mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.409
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.409             -42.860 clk 
+Info (332146): Worst-case hold slack is 0.453
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.453               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -53.558 clk 
+Info: Analyzing Slow 1200mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -2.119
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.119             -35.677 clk 
+Info (332146): Worst-case hold slack is 0.402
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.402               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -53.558 clk 
+Info: Analyzing Fast 1200mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in TimeQuest to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the TimeQuest Timing Analyzer.
+Info (332146): Worst-case setup slack is -0.511
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.511              -4.898 clk 
+Info (332146): Worst-case hold slack is 0.186
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.186               0.000 clk 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -3.000
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -3.000             -39.284 clk 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4795 megabytes
+    Info: Processing ended: Mon Mar 24 21:40:46 2025
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

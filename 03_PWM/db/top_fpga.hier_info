@@ -1,0 +1,39 @@
+|top_fpga
+clk => clk.IN1
+key_n => key_n.IN1
+led << led_r.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|top_fpga|key_jitter:key_jitter_inst
+clk => key_valid~reg0.CLK
+clk => key_valid_r2.CLK
+clk => key_valid_r1.CLK
+clk => key_valid_r0.CLK
+clk => key_down_check[0].CLK
+clk => key_down_check[1].CLK
+clk => key_down_check[2].CLK
+clk => key_down_check[3].CLK
+clk => cnt0[0].CLK
+clk => cnt0[1].CLK
+clk => cnt0[2].CLK
+clk => cnt0[3].CLK
+clk => cnt0[4].CLK
+clk => cnt0[5].CLK
+clk => cnt0[6].CLK
+clk => cnt0[7].CLK
+clk => cnt0[8].CLK
+clk => cnt0[9].CLK
+clk => cnt0[10].CLK
+clk => cnt0[11].CLK
+clk => cnt0[12].CLK
+clk => cnt0[13].CLK
+clk => cnt0[14].CLK
+clk => cnt0[15].CLK
+clk => cnt0[16].CLK
+clk => cnt0[17].CLK
+clk => cnt0[18].CLK
+clk => cnt0[19].CLK
+key_n => key_down_check[0].DATAIN
+key_valid <= key_valid~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

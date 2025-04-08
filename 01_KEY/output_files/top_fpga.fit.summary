@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Mar 24 01:05:33 2025
+Quartus II 64-Bit Version : 13.1.0 Build 162 10/23/2013 SJ Full Version
+Revision Name : top_fpga
+Top-level Entity Name : top_fpga
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 99 / 6,272 ( 2 % )
+    Total combinational functions : 95 / 6,272 ( 2 % )
+    Dedicated logic registers : 62 / 6,272 ( < 1 % )
+Total registers : 62
+Total pins : 4 / 92 ( 4 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

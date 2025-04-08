@@ -1,0 +1,185 @@
+//file name:       top_fpga.v
+//author:           ETree
+//date:             2017.7.23
+//function:        top file of project
+//log:             秒表
+
+module top_fpga(
+    //global signal
+    input clk,  //50MHz
+    input rst_n,//low active
+    
+	 //ledsm
+	 output [7:0] sm_dat,
+	 output [1:0] sm_sel,
+
+	 
+    //led
+    output led //high active
+);
+
+
+parameter ZERO    = 8'b0000_0011,//8'b1100_0000, 
+			 ONE     = 8'b1001_1111,//8'b1111_1001,  
+			 TWO     = 8'b0010_0101,//8'b1010_0100, 
+			 THREE   = 8'b0000_1101,//8'b1011_0000,
+			 FOUR    = 8'b1001_1001,//8'b1001_1001, 
+			 FIVE    = 8'b0100_1001,//8'b1001_0010, 
+			 SIX     = 8'b0100_0001,//8'b1000_0010,
+			 SEVEN   = 8'b0001_1111,//8'b1111_1000, 
+			 EIGHT   = 8'b0000_0001,//8'b1000_0000,
+			 NINE    = 8'b0000_1001,//8'b1001_0000;
+			 AA	   = 8'b0001_0001,
+			 BB      = 8'b1100_0001,
+			 CC      = 8'b0110_0011,
+			 DD      = 8'b1000_0101,
+			 EE      = 8'b0110_0001,
+			 FF      = 8'b0111_0001;
+
+reg [7:0] sm_dat_r;	//数码管段选
+reg [1:0] sm_sel_r;	//数码管位选
+reg [7:0] sm_dat_r0; //数码管段选寄存器0
+reg [7:0] sm_dat_r1; //数码管段选寄存器1
+reg [0:0] sm_cnt;		//数码管片选计数器
+reg [31:0] timer;		//1秒计数器
+reg [19:0] timer1;	//1毫秒计数器
+reg [3:0]  second_0; //秒表个位
+reg [3:0]  second_1;	//秒表十位
+
+//--------秒计数器---------
+always @(posedge clk or negedge rst_n)
+    if (~rst_n)
+        timer <= 0; 							//计数器清零
+    else if (timer == 32'd49_999_999)  //1秒计数(50M-1=49_999_999)
+        timer <= 0;                    //计数器计到1秒，计数器清零
+    else
+        timer <= timer + 1'b1;         //计数器加 1
+
+//--------数码管片选计数器-----------  
+always @(posedge clk or negedge rst_n)
+    if (~rst_n)
+        timer1 <= 0; 							//计数器清零
+    else if (timer1 == 32'd499_999)  //1秒计数(50M-1=49_999_999)
+        timer1 <= 0;                    //计数器计到1秒，计数器清零
+    else
+        timer1 <= timer1 + 1'b1;         //计数器加 1		  
+	  
+always @(posedge clk or negedge rst_n)
+	if(~rst_n)
+		sm_cnt <= 0;
+	else if(timer1==0)
+		sm_cnt <= sm_cnt + 1'b1;
+	else
+		sm_cnt <= sm_cnt;
+
+//----------秒表进位计数器------------
+always @(posedge clk or negedge rst_n)
+	if(~rst_n)
+		second_0 <= 0;
+	else if(timer==0)
+		if(second_0<9)
+			second_0 <= second_0 + 1'b1;
+		else
+			second_0 <= 0;
+	else
+		second_0 <= second_0;
+
+always @(posedge clk or negedge rst_n)
+	if(~rst_n)
+		second_1 <= 0;
+	else if(timer==0)
+		if(second_0==9)
+			if(second_1<5)
+				second_1 <= second_1 + 1'b1;
+			else
+				second_1 <= 0;
+		else
+			second_1 <= second_1;
+	else
+		second_1 <= second_1;
+	
+
+//----------数码管译码----------
+always @ (*)
+	case( second_0 )
+	4'd0 : sm_dat_r0 <= ZERO;
+	4'd1 : sm_dat_r0 <= ONE;
+	4'd2 : sm_dat_r0 <= TWO;
+	4'd3 : sm_dat_r0 <= THREE;
+	4'd4 : sm_dat_r0 <= FOUR;
+	4'd5 : sm_dat_r0 <= FIVE;
+	4'd6 : sm_dat_r0 <= SIX;
+	4'd7 : sm_dat_r0 <= SEVEN;
+	4'd8 : sm_dat_r0 <= EIGHT;
+	4'd9 : sm_dat_r0 <= NINE;
+	4'd10: sm_dat_r0 <= AA ;
+	4'd11: sm_dat_r0 <= BB ;
+	4'd12: sm_dat_r0 <= CC ;
+	4'd13: sm_dat_r0 <= DD ;
+	4'd14: sm_dat_r0 <= EE ;
+	4'd15: sm_dat_r0 <= FF ;
+	default:sm_dat_r0 <= 8'hFF;
+	endcase
+
+always @ (*)
+	case( second_1 )
+	4'd0 : sm_dat_r1 <= ZERO;
+	4'd1 : sm_dat_r1 <= ONE;
+	4'd2 : sm_dat_r1 <= TWO;
+	4'd3 : sm_dat_r1 <= THREE;
+	4'd4 : sm_dat_r1 <= FOUR;
+	4'd5 : sm_dat_r1 <= FIVE;
+	4'd6 : sm_dat_r1 <= SIX;
+	4'd7 : sm_dat_r1 <= SEVEN;
+	4'd8 : sm_dat_r1 <= EIGHT;
+	4'd9 : sm_dat_r1 <= NINE;
+	4'd10: sm_dat_r1 <= AA ;
+	4'd11: sm_dat_r1 <= BB ;
+	4'd12: sm_dat_r1 <= CC ;
+	4'd13: sm_dat_r1 <= DD ;
+	4'd14: sm_dat_r1 <= EE ;
+	4'd15: sm_dat_r1 <= FF ;
+	default:sm_dat_r1 <= 8'hFF;
+	endcase
+
+
+//---------数码管显示---------	
+always @(sm_cnt)
+	case(sm_cnt)
+	'd0:
+	begin
+		sm_sel_r <= 2'b01;
+		sm_dat_r <= sm_dat_r0;	
+	end
+	'd1:
+	begin
+		sm_sel_r <= 2'b10;
+		sm_dat_r <= sm_dat_r1;	
+	end	
+	default:
+	begin
+		sm_sel_r <= 2'b11;
+		sm_dat_r <= ZERO;
+	end
+	endcase
+	
+assign sm_sel = sm_sel_r;
+assign sm_dat = sm_dat_r;
+
+//-----------LED-------------
+//寄存器定义
+reg  led_r;
+
+assign led = led_r;
+
+//LED控制
+always @(posedge clk or negedge rst_n)
+    if (~rst_n)
+        led_r <= 0; //LED 灯灭
+    else if (timer == 32'd12_499_999)
+		  led_r <= ~led_r;
+    else
+        led_r <= led_r;
+		
+		
+endmodule

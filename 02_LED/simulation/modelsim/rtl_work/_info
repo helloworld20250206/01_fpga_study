@@ -1,0 +1,45 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\lisimo\Desktop\FPGA_Proj\LED\simulation\modelsim
+vtop_fpga
+IgVVPnJ@AJmD3VJi]0@PGP0
+VTjD6HnX9OeBiDRk`zf]>31
+Z1 dC:\Users\lisimo\Desktop\FPGA_Proj\LED\simulation\modelsim
+w1742397204
+8C:/Users/lisimo/Desktop/FPGA_Proj/LED/top_fpga.v
+FC:/Users/lisimo/Desktop/FPGA_Proj/LED/top_fpga.v
+L0 1
+Z2 OV;L;10.1d;51
+r1
+31
+Z3 o-vlog01compat -work work -O0
+!i10b 1
+!s100 Hmj6TDB1oeTXP??UJ3:h43
+!s85 0
+!s108 1742481809.831000
+!s107 C:/Users/lisimo/Desktop/FPGA_Proj/LED/top_fpga.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/lisimo/Desktop/FPGA_Proj/LED|C:/Users/lisimo/Desktop/FPGA_Proj/LED/top_fpga.v|
+!s101 -O0
+!s92 -vlog01compat -work work +incdir+C:/Users/lisimo/Desktop/FPGA_Proj/LED -O0
+vtop_fpga_vlg_tst
+!i10b 1
+!s100 gTGVKDkoBU11chi^^JbPK1
+Ih>B1e;`=izVgB5Q6odSGK1
+VK[7RH]fDMcFTmA]:[S`U91
+R1
+w1742481464
+8C:/Users/lisimo/Desktop/FPGA_Proj/LED/simulation/modelsim/top_fpga.vt
+FC:/Users/lisimo/Desktop/FPGA_Proj/LED/simulation/modelsim/top_fpga.vt
+L0 28
+R2
+r1
+!s85 0
+31
+!s108 1742481810.041000
+!s107 C:/Users/lisimo/Desktop/FPGA_Proj/LED/simulation/modelsim/top_fpga.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/lisimo/Desktop/FPGA_Proj/LED/simulation/modelsim|C:/Users/lisimo/Desktop/FPGA_Proj/LED/simulation/modelsim/top_fpga.vt|
+!s101 -O0
+R3
+!s92 -vlog01compat -work work +incdir+C:/Users/lisimo/Desktop/FPGA_Proj/LED/simulation/modelsim -O0

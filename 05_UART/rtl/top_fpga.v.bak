@@ -1,0 +1,32 @@
+module top_fpga (
+    input clk,
+    input rst_n,
+    input key_n,
+    output [15:0] dat_out;
+
+    input uart_rx,
+    input uart_tx,
+    output led
+);
+
+wire key_valid;
+
+
+key_jitter key_jitter_inst
+(
+    .clk(clk),
+    .key_n(key_n),
+    .key_valid(key_valid)
+);
+
+
+myuart myuart_inst(
+    .clk(clk),
+    .rst_n(rst_n),
+    .rxd(uart_rx),
+    .txd(uart_tx),
+    .key_valid(key_valid),
+    .data_out(dat_out)
+)
+
+endmodule

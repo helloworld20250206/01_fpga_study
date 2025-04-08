@@ -1,0 +1,37 @@
+# Reading D:/mySoftWare/altera/13.1/modelsim_ase/tcl/vsim/pref.tcl 
+# do top_fpga_run_msim_rtl_verilog.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying D:\mySoftWare\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied D:\mySoftWare\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/lisimo/Desktop/FPGA_Proj/LED {C:/Users/lisimo/Desktop/FPGA_Proj/LED/top_fpga.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module top_fpga
+# 
+# Top level modules:
+# 	top_fpga
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/lisimo/Desktop/FPGA_Proj/LED/simulation/modelsim {C:/Users/lisimo/Desktop/FPGA_Proj/LED/simulation/modelsim/top_fpga.vt}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module top_fpga_vlg_tst
+# 
+# Top level modules:
+# 	top_fpga_vlg_tst
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  top_fpga_vlg_tst
+# vsim -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=\"+acc\" -t 1ps top_fpga_vlg_tst 
+# Loading work.top_fpga_vlg_tst
+# Loading work.top_fpga
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 4 sec
