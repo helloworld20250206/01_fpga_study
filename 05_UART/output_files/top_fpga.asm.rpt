@@ -1,5 +1,5 @@
 Assembler report for top_fpga
-Tue Apr 08 21:41:07 2025
+Tue Apr 08 22:42:09 2025
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -11,7 +11,7 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
   3. Assembler Settings
   4. Assembler Encrypted IP Cores Summary
   5. Assembler Generated Files
-  6. Assembler Device Options: C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/output_files/top_fpga.sof
+  6. Assembler Device Options: D:/myGitHub/01_fpga_study/05_UART/output_files/top_fpga.sof
   7. Assembler Messages
 
 
@@ -38,7 +38,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Tue Apr 08 21:41:07 2025 ;
+; Assembler Status      ; Successful - Tue Apr 08 22:42:09 2025 ;
 ; Revision Name         ; top_fpga                              ;
 ; Top-level Entity Name ; top_fpga                              ;
 ; Family                ; Cyclone IV E                          ;
@@ -88,24 +88,24 @@ applicable agreement for further details.
 +--------+------------------------+--------------+
 
 
-+---------------------------------------------------------------------+
-; Assembler Generated Files                                           ;
-+---------------------------------------------------------------------+
-; File Name                                                           ;
-+---------------------------------------------------------------------+
-; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/output_files/top_fpga.sof ;
-+---------------------------------------------------------------------+
++-------------------------------------------------------------+
+; Assembler Generated Files                                   ;
++-------------------------------------------------------------+
+; File Name                                                   ;
++-------------------------------------------------------------+
+; D:/myGitHub/01_fpga_study/05_UART/output_files/top_fpga.sof ;
++-------------------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/output_files/top_fpga.sof ;
-+----------------+------------------------------------------------------------------------------+
-; Option         ; Setting                                                                      ;
-+----------------+------------------------------------------------------------------------------+
-; Device         ; EP4CE6E22C8                                                                  ;
-; JTAG usercode  ; 0x000F8BE6                                                                   ;
-; Checksum       ; 0x000F8BE6                                                                   ;
-+----------------+------------------------------------------------------------------------------+
++---------------------------------------------------------------------------------------+
+; Assembler Device Options: D:/myGitHub/01_fpga_study/05_UART/output_files/top_fpga.sof ;
++----------------+----------------------------------------------------------------------+
+; Option         ; Setting                                                              ;
++----------------+----------------------------------------------------------------------+
+; Device         ; EP4CE6E22C8                                                          ;
+; JTAG usercode  ; 0x000F8BE6                                                           ;
+; Checksum       ; 0x000F8BE6                                                           ;
++----------------+----------------------------------------------------------------------+
 
 
 +--------------------+
@@ -114,13 +114,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Tue Apr 08 21:41:06 2025
+    Info: Processing started: Tue Apr 08 22:42:08 2025
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off top_fpga -c top_fpga
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4602 megabytes
-    Info: Processing ended: Tue Apr 08 21:41:07 2025
+    Info: Processing ended: Tue Apr 08 22:42:09 2025
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

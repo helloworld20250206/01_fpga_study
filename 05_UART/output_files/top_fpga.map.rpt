@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_fpga
-Tue Apr 08 21:40:58 2025
+Tue Apr 08 22:42:00 2025
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -49,7 +49,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Apr 08 21:40:58 2025       ;
+; Analysis & Synthesis Status        ; Successful - Tue Apr 08 22:42:00 2025       ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name                      ; top_fpga                                    ;
 ; Top-level Entity Name              ; top_fpga                                    ;
@@ -175,12 +175,12 @@ applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                           ; Library ;
 +----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
-; rtl/myuart/speed_select.v        ; yes             ; User Verilog HDL File        ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/rtl/myuart/speed_select.v                    ;         ;
-; rtl/myuart/myuart_tx.v           ; yes             ; User Verilog HDL File        ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/rtl/myuart/myuart_tx.v                       ;         ;
-; rtl/myuart/myuart_rx.v           ; yes             ; User Verilog HDL File        ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/rtl/myuart/myuart_rx.v                       ;         ;
-; rtl/top_fpga.v                   ; yes             ; User Verilog HDL File        ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/rtl/top_fpga.v                               ;         ;
-; ../01_KEY/rtl/key_jitter.v       ; yes             ; User Verilog HDL File        ; C:/Users/lisimo/Desktop/FPGA_Proj/01_KEY/rtl/key_jitter.v                              ;         ;
-; rtl/myuart/myuart.v              ; yes             ; User Verilog HDL File        ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/rtl/myuart/myuart.v                          ;         ;
+; rtl/myuart/speed_select.v        ; yes             ; User Verilog HDL File        ; D:/myGitHub/01_fpga_study/05_UART/rtl/myuart/speed_select.v                            ;         ;
+; rtl/myuart/myuart_tx.v           ; yes             ; User Verilog HDL File        ; D:/myGitHub/01_fpga_study/05_UART/rtl/myuart/myuart_tx.v                               ;         ;
+; rtl/myuart/myuart_rx.v           ; yes             ; User Verilog HDL File        ; D:/myGitHub/01_fpga_study/05_UART/rtl/myuart/myuart_rx.v                               ;         ;
+; rtl/top_fpga.v                   ; yes             ; User Verilog HDL File        ; D:/myGitHub/01_fpga_study/05_UART/rtl/top_fpga.v                                       ;         ;
+; ../01_KEY/rtl/key_jitter.v       ; yes             ; User Verilog HDL File        ; D:/myGitHub/01_fpga_study/01_KEY/rtl/key_jitter.v                                      ;         ;
+; rtl/myuart/myuart.v              ; yes             ; User Verilog HDL File        ; D:/myGitHub/01_fpga_study/05_UART/rtl/myuart/myuart.v                                  ;         ;
 ; sld_signaltap.vhd                ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/sld_signaltap.vhd            ;         ;
 ; sld_signaltap_impl.vhd           ; yes             ; Encrypted Megafunction       ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/sld_signaltap_impl.vhd       ;         ;
 ; sld_ela_control.vhd              ; yes             ; Encrypted Megafunction       ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/sld_ela_control.vhd          ;         ;
@@ -199,7 +199,7 @@ applicable agreement for further details.
 ; altrom.inc                       ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/altrom.inc                   ;         ;
 ; altram.inc                       ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/altram.inc                   ;         ;
 ; altdpram.inc                     ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/altdpram.inc                 ;         ;
-; db/altsyncram_eu14.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/db/altsyncram_eu14.tdf                       ;         ;
+; db/altsyncram_eu14.tdf           ; yes             ; Auto-Generated Megafunction  ; D:/myGitHub/01_fpga_study/05_UART/db/altsyncram_eu14.tdf                               ;         ;
 ; altdpram.tdf                     ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/altdpram.tdf                 ;         ;
 ; memmodes.inc                     ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/others/maxplus2/memmodes.inc               ;         ;
 ; a_hdffe.inc                      ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/a_hdffe.inc                  ;         ;
@@ -209,22 +209,22 @@ applicable agreement for further details.
 ; muxlut.inc                       ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/muxlut.inc                   ;         ;
 ; bypassff.inc                     ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/bypassff.inc                 ;         ;
 ; altshift.inc                     ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/altshift.inc                 ;         ;
-; db/mux_ssc.tdf                   ; yes             ; Auto-Generated Megafunction  ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/db/mux_ssc.tdf                               ;         ;
+; db/mux_ssc.tdf                   ; yes             ; Auto-Generated Megafunction  ; D:/myGitHub/01_fpga_study/05_UART/db/mux_ssc.tdf                                       ;         ;
 ; lpm_decode.tdf                   ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/lpm_decode.tdf               ;         ;
 ; declut.inc                       ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/declut.inc                   ;         ;
 ; lpm_compare.inc                  ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/lpm_compare.inc              ;         ;
-; db/decode_dvf.tdf                ; yes             ; Auto-Generated Megafunction  ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/db/decode_dvf.tdf                            ;         ;
+; db/decode_dvf.tdf                ; yes             ; Auto-Generated Megafunction  ; D:/myGitHub/01_fpga_study/05_UART/db/decode_dvf.tdf                                    ;         ;
 ; lpm_counter.tdf                  ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/lpm_counter.tdf              ;         ;
 ; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/lpm_add_sub.inc              ;         ;
 ; cmpconst.inc                     ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/cmpconst.inc                 ;         ;
 ; lpm_counter.inc                  ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/lpm_counter.inc              ;         ;
 ; alt_counter_stratix.inc          ; yes             ; Megafunction                 ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/alt_counter_stratix.inc      ;         ;
-; db/cntr_fgi.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/db/cntr_fgi.tdf                              ;         ;
-; db/cntr_i6j.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/db/cntr_i6j.tdf                              ;         ;
-; db/cntr_egi.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/db/cntr_egi.tdf                              ;         ;
-; db/cmpr_qgc.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/db/cmpr_qgc.tdf                              ;         ;
-; db/cntr_23j.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/db/cntr_23j.tdf                              ;         ;
-; db/cmpr_ngc.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/db/cmpr_ngc.tdf                              ;         ;
+; db/cntr_fgi.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/myGitHub/01_fpga_study/05_UART/db/cntr_fgi.tdf                                      ;         ;
+; db/cntr_i6j.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/myGitHub/01_fpga_study/05_UART/db/cntr_i6j.tdf                                      ;         ;
+; db/cntr_egi.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/myGitHub/01_fpga_study/05_UART/db/cntr_egi.tdf                                      ;         ;
+; db/cmpr_qgc.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/myGitHub/01_fpga_study/05_UART/db/cmpr_qgc.tdf                                      ;         ;
+; db/cntr_23j.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/myGitHub/01_fpga_study/05_UART/db/cntr_23j.tdf                                      ;         ;
+; db/cmpr_ngc.tdf                  ; yes             ; Auto-Generated Megafunction  ; D:/myGitHub/01_fpga_study/05_UART/db/cmpr_ngc.tdf                                      ;         ;
 ; sld_rom_sr.vhd                   ; yes             ; Encrypted Megafunction       ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/sld_rom_sr.vhd               ;         ;
 ; sld_hub.vhd                      ; yes             ; Encrypted Megafunction       ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/sld_hub.vhd                  ;         ;
 ; sld_jtag_hub.vhd                 ; yes             ; Encrypted Megafunction       ; d:/mysoftware/altera/13.1/quartus/libraries/megafunctions/sld_jtag_hub.vhd             ;         ;
@@ -396,20 +396,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------+
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_fpga|myuart:myuart_inst|myuart_rx:inst_myuart_rx|num[3]                                                    ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_fpga|myuart:myuart_inst|myuart_tx:inst_myuart_tx|num[3]                                                    ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_fpga|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|hub_minor_ver_reg[0]                    ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |top_fpga|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|mixer_addr_reg[4]                       ;
-; 5:1                ; 5 bits    ; 15 LEs        ; 5 LEs                ; 10 LEs                 ; Yes        ; |top_fpga|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|word_counter[0] ;
-; 6:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |top_fpga|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|irsr_reg[2]                             ;
-; 34:1               ; 4 bits    ; 88 LEs        ; 56 LEs               ; 32 LEs                 ; Yes        ; |top_fpga|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|design_hash_reg[0]                      ;
-; 20:1               ; 4 bits    ; 52 LEs        ; 32 LEs               ; 20 LEs                 ; Yes        ; |top_fpga|sld_hub:auto_hub|sld_jtag_hub:\jtag_hub_gen:sld_jtag_hub_inst|sld_rom_sr:hub_info_reg|WORD_SR[0]      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_fpga|myuart:myuart_inst|myuart_rx:inst_myuart_rx|num[3] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top_fpga|myuart:myuart_inst|myuart_tx:inst_myuart_tx|num[3] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------+
@@ -496,14 +490,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+------------------+---------------------+------------------+--------------+----------+------------------------+----------------------+--------------------+-----------------------------+-----------------+------------------+--------------------------+
 
 
-+---------------------------------+
-; Elapsed Time Per Partition      ;
-+------------------+--------------+
-; Partition Name   ; Elapsed Time ;
-+------------------+--------------+
-; sld_hub:auto_hub ; 00:00:00     ;
-; Top              ; 00:00:00     ;
-+------------------+--------------+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -553,7 +546,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Tue Apr 08 21:40:54 2025
+    Info: Processing started: Tue Apr 08 22:41:57 2025
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_fpga -c top_fpga
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/myuart/speed_select.v
@@ -564,7 +557,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file rtl/myu
     Info (12023): Found entity 1: myuart_rx
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/top_fpga.v
     Info (12023): Found entity 1: top_fpga
-Info (12021): Found 1 design units, including 1 entities, in source file /users/lisimo/desktop/fpga_proj/01_key/rtl/key_jitter.v
+Info (12021): Found 1 design units, including 1 entities, in source file /mygithub/01_fpga_study/01_key/rtl/key_jitter.v
     Info (12023): Found entity 1: key_jitter
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/myuart/myuart.v
     Info (12023): Found entity 1: myuart
@@ -604,11 +597,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "led" is stuck at GND
 Info (286031): Timing-Driven Synthesis is running on partition "Top"
 Info (17049): 2 registers lost all their fanouts during netlist optimizations.
-Info (13000): Registers with preset signals will power-up high
-Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "sld_hub:auto_hub|receive[0][0]" is stuck at GND
-Info (286031): Timing-Driven Synthesis is running on partition "sld_hub:auto_hub"
 Info (35024): Succesfully connected in-system debug instance "auto_signaltap_0" to all 33 required data inputs, trigger inputs, acquisition clocks, and dynamic pins
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
@@ -617,10 +605,10 @@ Info (21057): Implemented 918 device resources after synthesis - the final resou
     Info (21059): Implemented 19 output pins
     Info (21061): Implemented 875 logic cells
     Info (21064): Implemented 16 RAM segments
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 9 warnings
-    Info: Peak virtual memory: 4741 megabytes
-    Info: Processing ended: Tue Apr 08 21:40:58 2025
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:05
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4748 megabytes
+    Info: Processing ended: Tue Apr 08 22:42:00 2025
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

@@ -1,5 +1,5 @@
 Fitter report for top_fpga
-Tue Apr 08 21:41:05 2025
+Tue Apr 08 22:42:07 2025
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -67,7 +67,7 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Tue Apr 08 21:41:04 2025       ;
+; Fitter Status                      ; Successful - Tue Apr 08 22:42:07 2025       ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name                      ; top_fpga                                    ;
 ; Top-level Entity Name              ; top_fpga                                    ;
@@ -230,7 +230,7 @@ applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/output_files/top_fpga.pin.
+The pin-out file can be found in D:/myGitHub/01_fpga_study/05_UART/output_files/top_fpga.pin.
 
 
 +-------------------------------------------------------------------------+
@@ -2182,16 +2182,16 @@ Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (11888): Total time spent on timing analysis during the Fitter is 0.58 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.53 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:01
-Info (144001): Generated suppressed messages file C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/output_files/top_fpga.fit.smsg
+Info (144001): Generated suppressed messages file D:/myGitHub/01_fpga_study/05_UART/output_files/top_fpga.fit.smsg
 Info: Quartus II 64-Bit Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 6141 megabytes
-    Info: Processing ended: Tue Apr 08 21:41:05 2025
+    Info: Peak virtual memory: 6152 megabytes
+    Info: Processing ended: Tue Apr 08 22:42:07 2025
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:08
 
@@ -2199,6 +2199,6 @@ Info: Quartus II 64-Bit Fitter was successful. 0 errors, 7 warnings
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/lisimo/Desktop/FPGA_Proj/05_UART/output_files/top_fpga.fit.smsg.
+The suppressed messages can be found in D:/myGitHub/01_fpga_study/05_UART/output_files/top_fpga.fit.smsg.
 
 
